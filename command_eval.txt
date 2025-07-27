@@ -1,0 +1,22 @@
+rm -rf ./datasets/tmp
+python -m lerobot.record \
+  --robot.type=so101_follower \
+  --robot.port=/dev/tty.usbmodem5A7A0576651 \
+  --robot.id=nk_follower \
+  --robot.cameras='{"front":{"type":"opencv","index_or_path":1,"width":1280,"height":720,"fps":30}, "wrist":{"type":"opencv","index_or_path":0,"width":640,"height":480,"fps":30}}' \
+  --policy.path=karimnihal/smolvla_so101_pen_cup_base \
+  --policy.device=mps --policy.use_amp=false \
+  --teleop.type=so101_leader \
+  --teleop.port=/dev/tty.usbmodem5A7A0546741 \
+  --teleop.id=nk_leader \
+  --dataset.repo_id="karimnihal/eval_tmp-run" \
+  --dataset.root=./datasets/tmp/smolvla-run \
+  --dataset.single_task="pick up the pen and put it in the cup" \
+  --dataset.num_episodes=5 \
+  --dataset.episode_time_s=60 \
+  --dataset.reset_time_s=5 \
+  --dataset.fps=30 \
+  --dataset.video=false \
+  --dataset.push_to_hub=false \
+  --display_data=false \
+  --play_sounds=false

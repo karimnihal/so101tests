@@ -1,0 +1,7 @@
+python -m lerobot.teleoperate \
+  --robot.type=so101_follower \
+  --robot.port=/dev/tty.usbmodem5A7A0576651 \
+  --robot.id=nk_follower \
+  --teleop.type=so101_leader \
+  --teleop.port=/dev/tty.usbmodem5A7A0546741 \
+  --teleop.id=nk_leader

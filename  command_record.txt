@@ -1,0 +1,22 @@
+python -m lerobot.record \
+  --robot.type=so101_follower \
+  --robot.port=/dev/tty.usbmodem5A7A0576651 \
+  --robot.id=nk_follower \
+  --robot.cameras='{"front":{"type":"opencv","index_or_path":1,"width":1280,"height":720,"fps":30},"wrist":{"type":"opencv","index_or_path":0,"width":640,"height":480,"fps":30}}' \
+  --teleop.type=so101_leader \
+  --teleop.port=/dev/tty.usbmodem5A7A0546741 \
+  --teleop.id=nk_leader \
+  --dataset.repo_id="karimnihal/so101-pen-cup" \
+  --dataset.root="./datasets/so101-pen-cup-a" \
+  --dataset.single_task="pick up the pen and put it in the cup" \
+  --dataset.num_episodes=25 \
+  --dataset.reset_time_s=5 \
+  --dataset.fps=30 \
+  --dataset.video=true \
+  --dataset.push_to_hub=true \
+  --dataset.private=false \
+  --dataset.tags='["so101","teleop","pen-cup","rgb"]' \
+  --dataset.num_image_writer_processes=0 \
+  --dataset.num_image_writer_threads_per_camera=4 \
+  --display_data=false \
+  --resume=true
